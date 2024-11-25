@@ -23,3 +23,34 @@ if b_columns.button("Jugador con mas kills"):
   plt.title('Jugador con mas kills')
   _ = plt.xticks(rotation=45, ha='right')
   st.pyplot(fig)
+
+c_columns , d_columns , e_columns = st.columns(3)
+
+if c_columns.button("Jugador con mas kills"):
+  fig = plt.figure(figsize=(15, 6))
+  Muertes = df.groupby('Player')['Death'].mean().sort_values(ascending=False)
+  plt.bar(Muertes.index, Muertes.values, color="Red")
+  plt.xlabel('Jugador')
+  plt.ylabel('Muertes')
+  plt.title('Jugador con más muertes en el torneo')
+  _ = plt.xticks(rotation=45,ha="center", )
+  st.pyplot(fig)
+if d_columns.button("Jugador con mas kills"):
+  fig = plt.figure(figsize=(15, 6))
+  Muertes = df.groupby('Player')['Death'].mean().sort_values(ascending=False)
+  plt.bar(Muertes.index, Muertes.values, color="Red")
+  plt.xlabel('Jugador')
+  plt.ylabel('Muertes')
+  plt.title('Jugador con más muertes en el torneo')
+  _ = plt.xticks(rotation=45,ha="center", )
+  st.pyplot(fig)
+if e_columns.button("Jugador con mas kills"):
+  fig = plt.figure(figsize=(15, 6))
+  Muertes = df.groupby('Player')['Death'].mean().sort_values(ascending=False)
+  plt.bar(Muertes.index, Muertes.values, color="Red")
+  plt.xlabel('Jugador')
+  plt.ylabel('Muertes')
+  plt.title('Jugador con más muertes en el torneo')
+  _ = plt.xticks(rotation=45,ha="center", )
+  st.pyplot(fig)
+
