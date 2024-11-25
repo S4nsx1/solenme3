@@ -13,3 +13,13 @@ if st.button("K/D promedio por equipos"):
   plt.title('K/D promedio por equipo')
   _ = plt.xticks(rotation="horizontal", ha='right')
   st.pyplot(fig)
+  
+if st.button("Jugador con mas kills"):
+  fig = plt.figure(figsize=(15, 6))
+  kills = df.groupby('Player')['Kill'].mean().sort_values(ascending=False)
+  plt.bar(kills.index, kills.values)
+  plt.xlabel('Jugador')
+  plt.ylabel('kills')
+  plt.title('Jugador con mas kills')
+  _ = plt.xticks(rotation=45, ha='right')
+  st.pyplot(fig)
