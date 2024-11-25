@@ -15,7 +15,7 @@ if st.button("K/D promedio por equipos"):
   st.pyplot(fig)
   
 if st.button("Jugador con mas kills"):
-  fig = plt.figure(figsize=(15, 6))
+  fig = plt.figure(figsize=(12, 6))
   kills = df.groupby('Player')['Kill'].mean().sort_values(ascending=False)
   plt.bar(kills.index, kills.values)
   plt.xlabel('Jugador')
