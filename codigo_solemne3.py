@@ -2,6 +2,8 @@ import streamlit as st
 import pandas as pd 
 import matplotlib.pyplot as plt
 
+df = pd.read_csv("valorant champions istanbul.csv")
+
 if st.button("K/D promedio por equipos"):
   plt.figure(figsize=(10, 6))
   kd = df.groupby('Team')['K/D'].mean().sort_values(ascending=False)
