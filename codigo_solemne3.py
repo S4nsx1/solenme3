@@ -26,7 +26,7 @@ if b_columns.button("Jugador con mas kills"):
 
 c_columns , d_columns , e_columns = st.columns(3)
 
-if c_columns.button("Jugador con mas kills"):
+if c_columns.button("Jugador con más muertes en el torneo"):
   fig = plt.figure(figsize=(15, 6))
   Muertes = df.groupby('Player')['Death'].mean().sort_values(ascending=False)
   plt.bar(Muertes.index, Muertes.values, color="Red")
@@ -35,22 +35,22 @@ if c_columns.button("Jugador con mas kills"):
   plt.title('Jugador con más muertes en el torneo')
   _ = plt.xticks(rotation=45,ha="center", )
   st.pyplot(fig)
-if d_columns.button("Jugador con mas kills"):
+if d_columns.button("Equipo con más victorias"):
   fig = plt.figure(figsize=(15, 6))
-  Muertes = df.groupby('Player')['Death'].mean().sort_values(ascending=False)
-  plt.bar(Muertes.index, Muertes.values, color="Red")
-  plt.xlabel('Jugador')
-  plt.ylabel('Muertes')
-  plt.title('Jugador con más muertes en el torneo')
-  _ = plt.xticks(rotation=45,ha="center", )
+  Victorias = df.groupby('Team')['Rounds Win'].mean()
+  plt.bar(Victorias.index, Victorias.values,color="green")
+  plt.xlabel('Equipo')
+  plt.ylabel('Victorias')
+  plt.title('Equipo con mas victorias')
+  _ = plt.xticks(rotation="horizontal",ha="center")
   st.pyplot(fig)
-if e_columns.button("Jugador con mas kills"):
+if e_columns.button("Equipo con mas derrotas del torneo"):
   fig = plt.figure(figsize=(15, 6))
-  Muertes = df.groupby('Player')['Death'].mean().sort_values(ascending=False)
-  plt.bar(Muertes.index, Muertes.values, color="Red")
-  plt.xlabel('Jugador')
-  plt.ylabel('Muertes')
-  plt.title('Jugador con más muertes en el torneo')
-  _ = plt.xticks(rotation=45,ha="center", )
+  Derrotas = df.groupby('Team')['Rounds Lose'].mean()
+  plt.bar(Derrotas.index, Derrotas.values,color="cyan")
+  plt.xlabel('Equipo')
+  plt.ylabel('Derrotas')
+  plt.title('Equipo con mas derrotas del torneo')
+  _ = plt.xticks(rotation="horizontal",ha="center")
   st.pyplot(fig)
 
